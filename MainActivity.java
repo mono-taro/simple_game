@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     //score
-    private int score = 1000;
+    private int score = 0;
 
     //Hnadler & Timer
     private Handler handler = new Handler();
@@ -347,7 +347,7 @@ public class MainActivity extends AppCompatActivity {
             if(event.getAction() == MotionEvent.ACTION_DOWN){
                 action_flg = true;      //画面に触れたらtrue
 
-
+                //スコアによる速度調整
                 if(100<=score && score<200){
                     moveSpeed=50.0f;
                 }else if(200<=score && score<300){
@@ -355,12 +355,12 @@ public class MainActivity extends AppCompatActivity {
                 }else if(300<=score && score<400){
                     boxMoveSpeed = -20.0f;
                     moveSpeed=30.0f;
-                }else if(400<=score){
+                }else if(400<=score && score<600){
                     moveSpeed-=0.05f;
-                }else if(600<=score){
+                }else if(600<=score && score<1000){
                     moveSpeed=10.0f;
                     moveSpeed-=0.1f;
-                }else if(1000<=score){
+                }else if(1000<=score && score<1500){
                     moveSpeed -=0.5f;
                 }else if (1500<=score){
                     moveSpeed -=1.0f;
